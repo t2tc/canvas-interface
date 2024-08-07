@@ -1,4 +1,6 @@
 
-export default function getCanvas() {
+function getCanvas() {
     return document.querySelector("canvas") as HTMLCanvasElement;
 }
+
+export { getCanvas };
