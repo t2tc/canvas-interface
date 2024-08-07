@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": [
+            "ESNext",
+            "DOM",
+            "DOM.Iterable"
+        ],
+        "paths": {
+            "test_util": [
+                "./test/test_util.ts"
+            ],
+            "canvas_interface": [
+                "./src/main.ts"
+            ]
+        },
+        "isolatedModules": true,
+        "moduleResolution": "Node",
+        "experimentalDecorators": true
+    }
+}
