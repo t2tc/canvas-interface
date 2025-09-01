@@ -1,12 +1,9 @@
 import { Component } from './component';
 import { Rect } from './shape';
 import { CanvasText } from './text';
+import { Button, ButtonOptions } from './button';
 
-export interface DialogButton {
-    text: string;
-    type: 'primary' | 'default';
-    onclick: () => void;
-}
+export interface DialogButton extends ButtonOptions {}
 
 export interface DialogOptions {
     title: string;
@@ -80,32 +77,17 @@ export class Dialog extends Component {
         let buttonX = x + (this.width - totalWidth) / 2;
 
         this.options.buttons.forEach((button, index) => {
-            const buttonContainer = new Component().setName(`Button${index}`);
-
-            const buttonRect = new Rect(
+            const buttonComponent = new Button(
                 buttonX,
                 buttonY + (this.buttonHeight - 30) / 2,
-                buttonWidth,
-                30
-            )
-                .setName('ButtonBackground')
-                .fill(button.type === 'primary' ? '#1890ff' : '#ffffff')
-                .stroke(button.type === 'primary' ? '#1890ff' : '#d9d9d9')
-                .shadow("rgba(0, 0, 0, 0.1)", 2, 1, 1);
-
-            const buttonText = new CanvasText(
-                button.text,
-                buttonX + buttonWidth / 2,
-                buttonY + this.buttonHeight / 2
-            )
-                .setName('ButtonText')
-                .fill(button.type === 'primary' ? '#ffffff' : '#333333')
-                .setFont(12)
-                .setBaseline("middle")
-                .setAlign("center");
-
-            buttonContainer.addChild(buttonRect).addChild(buttonText);
-            this.addChild(buttonContainer);
+                {
+                    ...button,
+                    width: buttonWidth,
+                    height: 30
+                }
+            ).setName(`Button${index}`);
+            
+            this.addChild(buttonComponent);
             buttonX += buttonWidth + buttonGap;
         });
     }
