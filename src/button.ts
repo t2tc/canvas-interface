@@ -51,6 +51,38 @@ export class Button extends Component {
             .setBaseline("middle")
             .setAlign("center");
 
-        this.addChild(background).addChild(text);
+        this.addChild(this.background).addChild(text);
+    }
+
+    private setupEventHandling() {
+        const eventManager = CanvasEventManager.getInstance();
+        console.log("setupEventHandling", eventManager);
+
+        // 注册按钮的可点击区域
+        eventManager.registerEventArea(
+            this,
+            'rect',
+            [this.x, this.y, this.width, this.height]
+        );
+
+        // 注册点击事件处理函数
+        if (this.options.onclick) {
+            eventManager.on(this, 'click', () => {
+                this.options.onclick?.();
+            });
+        }
+
+        // 注册鼠标悬停效果
+        eventManager.on(this, 'mouseenter', () => {
+            this.background
+                .fill(this.options.type === 'primary' ? '#40a9ff' : '#f5f5f5')
+                .stroke(this.options.type === 'primary' ? '#40a9ff' : '#d9d9d9');
+        });
+
+        eventManager.on(this, 'mouseleave', () => {
+            this.background
+                .fill(this.options.type === 'primary' ? '#1890ff' : '#ffffff')
+                .stroke(this.options.type === 'primary' ? '#1890ff' : '#d9d9d9');
+        });
     }
 }
