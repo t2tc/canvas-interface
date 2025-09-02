@@ -22,7 +22,6 @@ export class Dialog extends Component {
 
     constructor(private options: DialogOptions) {
         super();
-        this.name = 'Dialog';
         this.createChildren();
     }
 
@@ -85,7 +84,7 @@ export class Dialog extends Component {
                     width: buttonWidth,
                     height: 30
                 }
-            ).setName(`Button${index}`);
+            );
             
             this.addChild(buttonComponent);
             buttonX += buttonWidth + buttonGap;

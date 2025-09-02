@@ -89,7 +89,6 @@ export class Rect extends Shape {
         private height: number
     ) {
         super();
-        this.name = 'Rect';
     }
 
     protected doFill(ctx: CanvasRenderingContext2D) {
@@ -108,7 +107,6 @@ export class Circle extends Shape {
         private radius: number
     ) {
         super();
-        this.name = 'Circle';
     }
 
     protected doFill(ctx: CanvasRenderingContext2D) {

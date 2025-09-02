@@ -12,7 +12,6 @@ export class CanvasText extends Shape {
         private y: number
     ) {
         super();
-        this.name = 'Text';
     }
 
     setFont(size: number, family: string = 'Arial') {

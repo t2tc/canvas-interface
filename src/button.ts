@@ -1,6 +1,7 @@
 import { Component } from './component';
 import { Rect } from './shape';
 import { CanvasText } from './text';
+import { CanvasEventManager } from './event';
 
 export interface ButtonOptions {
     text: string;
@@ -13,6 +14,7 @@ export interface ButtonOptions {
 export class Button extends Component {
     private width: number;
     private height: number;
+    private background: Rect;
 
     constructor(
         private x: number,
@@ -20,14 +22,14 @@ export class Button extends Component {
         private options: ButtonOptions
     ) {
         super();
-        this.name = 'Button';
         this.width = options.width ?? 80;
         this.height = options.height ?? 30;
         this.createChildren();
+        this.setupEventHandling();
     }
 
     private createChildren() {
-        const background = new Rect(
+        this.background = new Rect(
             this.x,
             this.y,
             this.width,
