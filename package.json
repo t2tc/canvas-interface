@@ -1,4 +1,7 @@
 {
+    "scripts": {
+        "dev": "bun src/index.html"
+    },
     "devDependencies": {
         "@types/bun": "^1.2.21"
     }
