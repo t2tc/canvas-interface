@@ -1,6 +1,6 @@
 import { Component } from './component';
 import { Rect } from './shape';
-import { CanvasText } from './text';
+import { CanvasText } from './shape.text';
 import { CanvasEventManager } from './event';
 
 export interface ButtonOptions {
