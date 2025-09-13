@@ -73,6 +73,7 @@ export class Button extends Component {
         }
 
         // 注册鼠标悬停效果
+        // tl: 下面的悬停因为尚没有实现刷新机制，因而不会工作。
         eventManager.on(this, 'mouseenter', () => {
             this.background
                 .fill(this.options.type === 'primary' ? '#40a9ff' : '#f5f5f5')
