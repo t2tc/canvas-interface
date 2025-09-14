@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "dev": "bun src/index.html"
+        "dev": "bun run src/scripts/serve.ts"
     },
     "devDependencies": {
         "@types/bun": "^1.2.21"

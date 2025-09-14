@@ -1,1 +1,9 @@
 我们将为 canvas 添加 mousemove 和 click 的 event listener，并且将检测对应的事件是否发生在合适的区域内。从而，我们将可以为按钮添加点击后的效果，以及让鼠标在移经时使得按钮的颜色变浅，实现 hover 效果。
+
+我们将添加一个 Demo Selector，使得我们可以在 Canvas 上切换并且选择不同的 Demo。当用户选择了一个 Demo 后，我们将清空 Canvas 上的所有内容，并且渲染出该 Demo。这包含前后端两方面的实现。
+
+在后端，我们将借助 Bun 的相关功能，实现对 src/demos 目录下文件的扫描。扫描出所有的 Demo 后，我们将它们的文件名作为选项，以 /api/demos 提供给前端。每一个 demo 都为一个独立的 ts 脚本，都有着 export defualt 作为一个函数，这个函数将被前端所执行。这部分内容将实现在 src/scripts/serve_demo.ts 中。同样地，对应的 package.json 中的脚本也需要进行相关修改。
+
+在前端，我们将即时地访问这些对应的代码，并且获取可能的所有的 Demo 选项。在 Demo 被选择时，我们将可以实时地请求对应的文件，并且运行这些 Demo。这部份内容将实现在 src/index.demo_selector.ts 中。
+
+这之后，index.ts 中的对应 Demo 将被删除。

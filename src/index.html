@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Canvas Interface Tests</title>
-</head>
-<body>
-    <canvas id="canvas" width="1000" height="800"></canvas>
-    <div id="debug-button-holder" style="position: absolute; top: 10px; left: 10px; background-color: rgba(0,0,0,0.2);
-    display: flex; gap: 5px; padding: 5px; border-radius: 3px;">
+  </head>
+  <body>
+    <canvas id="canvas" width="1000" height="800" style="border: 1px solid lightgray;"></canvas>
+    <div
+      id="debug-button-holder"
+      style="
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0.2);
+        display: flex;
+        gap: 5px;
+        padding: 5px;
+        border-radius: 3px;
+      "
+    >
+      <select id="demo-selector">
+        <option value="">Unselected</option>
+      </select>
+      <button id="debug-button">Drawcall 调试</button>
+      <button id="edit-button">编辑模式</button>
     </div>
     <script src="index.ts" type="module"></script>
-</body>
+  </body>
 </html>
