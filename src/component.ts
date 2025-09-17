@@ -77,10 +77,12 @@ export class Component implements CanvasElement {
 }
 
 export class Canvas extends Component {
-    private ctx: CanvasRenderingContext2D;
+    public canvas: HTMLCanvasElement;
+    public ctx: CanvasRenderingContext2D;
 
-    constructor(private canvas: HTMLCanvasElement) {
+    constructor(canvas: HTMLCanvasElement) {
         super();
+        this.canvas = canvas;
         this.ctx = canvas.getContext('2d')!;
 
         if (window.devicePixelRatio > 1) {
